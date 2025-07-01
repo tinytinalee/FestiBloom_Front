@@ -1,0 +1,45 @@
+@font-face {
+  font-family: "Binggrae";
+  src: url("/fonts/Binggrae.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.join-container {
+  max-width: 400px;
+  margin: 0 auto;
+  font-family: "Binggrae", sans-serif;
+}
+
+.join-title {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+.join-input {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  font-family: "Binggrae", sans-serif;
+}
+
+.join-button {
+  width: 100%;
+  padding: 12px;
+  background-color: #f2d5dd; /* FestiBloom 파스텔톤 */
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-family: "Binggrae", sans-serif;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.join-button:hover {
+  background-color: #e7c4cb;
+}
