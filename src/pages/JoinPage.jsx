@@ -54,7 +54,7 @@ export default function JoinPage() {
       <form onSubmit={handleSubmit}>
         <input
           type="text"
-          placeholder="아이디"
+          placeholder="아이디==>"
           value={id}
           onChange={(e) => setId(e.target.value)}
           required
