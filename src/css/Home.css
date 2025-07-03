@@ -1,0 +1,204 @@
+@font-face {
+  font-family: "Binggrae";
+  src: url("/fonts/Binggrae-Bold.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  font-family: "Binggrae", sans-serif;
+  background-color: #f4f4dc;
+}
+
+.home {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.logo {
+  font-size: 100px;
+  font-family: "Binggrae", sans-serif;
+  color: #8b4513;
+  text-align: center;
+  flex: 1;
+}
+
+.auth-buttons {
+  gap: 10px;
+  text-align: right;
+}
+
+.auth-button {
+  background-color: #f4f4dc;
+  color: #8b4513;
+  border: none;
+  padding: 6px 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border-radius: 6px;
+}
+
+.auth-button:hover {
+  background-color: #fafbe3;
+}
+
+.search-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.filters {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.filter-select {
+  /*background-color: #f4f4dc;*/
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 15px;
+  transition: background-color 0.3s;
+}
+.filter-select:hover,
+.filter-select:focus {
+  /*background-color: #fafbe3;*/
+  outline: none;
+}
+
+.filter-date {
+  /*background-color: #f4f4dc;*/
+  border: none;
+  padding: 6px 8px;
+  border-radius: 6px;
+  font-size: 15px;
+  transition: background-color 0.3s;
+}
+.filter-date:hover,
+.filter-date:focus {
+  /*background-color: #fafbe3;*/
+  outline: none;
+}
+
+.tilde {
+  margin: 0 2px;
+  font-size: 18px;
+  color: #8b4513;
+  font-weight: bold;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.search input[type="text"] {
+  width: 450px;
+  padding: 6px;
+  border-radius: 6px;
+  border: none;
+  /*background-color: #f4f4dc;*/
+  font-size: 15px;
+}
+.search input[type="text"]:focus {
+  outline: none;
+  /*background-color: #fafbe3;*/
+}
+
+.search-btn {
+  background-color: #f4f4dc;
+  color: #8b4513;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 12px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.search-btn:hover {
+  background-color: #fafbe3;
+}
+
+.festival-list {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  overflow-y: auto;
+  padding-right: 4px; /* 스크롤바 공간 확보 */
+  align-items: center;
+  color: #8b4513;
+}
+
+/* 카드 박스 */
+.festival-card {
+  background-color: white;
+  border: 1px solid #ddd;
+  padding: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.poster {
+  width: 100px;
+  height: 100px;
+  background-color: #eee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.festival-info {
+  flex: 1;
+  margin-left: 20px;
+}
+
+.festival-meta,
+.festival-details {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+/* 페이지네이션 */
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  gap: 6px;
+}
+
+.pagination button {
+  padding: 6px 10px;
+  border: none;
+  background-color: #eee;
+  cursor: pointer;
+}
+
+.pagination button.active {
+  background-color: #333;
+  color: white;
+}
