@@ -2,13 +2,13 @@ import { useParams, Link, Routes, Route } from "react-router-dom";
 import NoticePage from "./Notice";
 import ReviewPage from "./ReviewList";
 import QnaPage from "./Qna";
-import BoothItemList from "./pages/BoothItemList";
+import BoothPage from "./Booth";
 import LineupPage from "./Lineup";
 import WeatherPage from "./weather/WeatherPage";
 import "../css/FestivalMainPage.css";
 
 function FestivalMainPage() {
-  const { id: festivalNo } = useParams(); // URL에서 festivalNo 추출
+  const { id } = useParams();
 
   return (
     <div className="festival-container">
@@ -60,15 +60,12 @@ function FestivalMainPage() {
         </p>
       </section>
 
-      {/* 탭 내용 */}
+      {/* 탭 내용 영역 */}
       <Routes>
         <Route path="notice" element={<NoticePage />} />
         <Route path="review" element={<ReviewPage />} />
         <Route path="qna" element={<QnaPage />} />
-        <Route
-          path="booth"
-          element={<BoothItemList festivalNo={festivalNo} />}
-        />
+        <Route path="booth" element={<BoothPage />} />
         <Route path="lineup" element={<LineupPage />} />
         <Route path="weather" element={<WeatherPage />} />
       </Routes>
