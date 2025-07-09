@@ -1,0 +1,96 @@
+.wrap {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.login-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: translateY(-80px);
+}
+
+.title {
+  font-size: 100px;
+  font-weight: bold;
+  margin-bottom: 24px;
+  color: #8b4513;
+  font-family: "Binggrae", sans-serif;
+}
+
+.login-container {
+  background-color: white;
+  max-width: 400px;
+  margin: 80px auto;
+  padding: 30px;
+  border: 1px solid #ddd;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  font-family: "Binggrae", sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-tabs {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 24px;
+  /*width: 100%;*/
+}
+
+.login-tabs button {
+  background: none;
+  border: none;
+  font-size: 16px;
+  font-weight: bold;
+  padding-bottom: 8px;
+  cursor: pointer;
+  color: #888;
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.login-tabs .active {
+  color: #8b4513;
+  border-color: #8b4513;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.login-form input[type="text"],
+.login-form input[type="password"] {
+  padding: 12px;
+  margin-bottom: 14px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.login-button {
+  background-color: #8b4513;
+  color: white;
+  padding: 12px;
+  font-size: 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 12px;
+}
+
+.login-button:hover {
+  background-color: #a0522d;
+}
+
+/*#root {
+  align-self: auto;
+}*/
