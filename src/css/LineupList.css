@@ -1,0 +1,67 @@
+.lineup-list {
+  font-family: "Binggrae", sans-serif;
+  padding: 2rem;
+  background-color: #fffdf9;
+}
+
+.lineup-list h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.lineup-list table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  background-color: #ffffff;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.lineup-list th,
+.lineup-list td {
+  padding: 1rem;
+  border-bottom: 1px solid #eee;
+  text-align: center;
+}
+
+.lineup-list th {
+  background-color: #f2d5dd;
+  color: #333;
+}
+
+.lineup-list td {
+  background-color: #fffafc;
+}
+
+.btn-insert {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #e1edc1;
+  color: #333;
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.btn-edit,
+.btn-delete {
+  margin: 0 0.2rem;
+  padding: 0.3rem 0.7rem;
+  font-size: 0.9rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn-edit {
+  background-color: #ceecf2;
+}
+
+.btn-delete {
+  background-color: #ffebb8;
+}

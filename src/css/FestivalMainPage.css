@@ -1,73 +1,93 @@
-/* 전체 페이지 배경 및 중앙 정렬 */
 .festival-main-container {
-  display: flex;
-  justify-content: center;
-  padding: 60px 20px;
-  background-color: #fafafa;
-  min-height: 100vh;
-}
-
-/* 안쪽 메인 콘텐츠 박스 */
-.festival-content-box {
-  width: 100%;
+  padding: 50px 20px;
   max-width: 1000px;
-  background-color: #fffdf8;
-  border-radius: 20px;
-  padding: 40px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+  margin: 0 auto;
+  background-color: #fffaf6;
   font-family: "Binggrae", sans-serif;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
 }
 
-/* 페이지 제목 */
 .festival-title {
-  font-size: 26px;
-  margin-bottom: 30px;
-  font-weight: bold;
-  color: #333;
   text-align: center;
+  font-size: 42px;
+  color: #a35d41;
+  margin-bottom: 30px;
 }
 
-/* 탭 메뉴 바 */
 .tab-menu {
   display: flex;
   flex-wrap: wrap;
-  gap: 16px;
   justify-content: center;
-  margin-bottom: 40px;
-  border-bottom: 2px solid #eee;
-  padding-bottom: 10px;
+  gap: 12px;
+  margin-bottom: 30px;
 }
 
-/* 각 탭 링크 */
 .tab-menu a {
+  background-color: #fff3c2;
+  padding: 10px 18px;
+  border-radius: 10px;
   text-decoration: none;
-  padding: 10px 20px;
-  border-radius: 16px;
-  background-color: #f2d5dd;
   color: #333;
-  transition: all 0.3s ease;
-  font-weight: 500;
-  font-size: 16px;
+  font-weight: 600;
+  transition: background-color 0.3s;
 }
 
 .tab-menu a:hover {
-  background-color: #ffebbb;
+  background-color: #ffe28f;
 }
 
-/* 탭 내부 콘텐츠 박스 */
-.tab-content-box {
-  padding: 25px;
-  background-color: #ffffff;
-  border-radius: 12px;
-  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.03);
+.festival-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+  gap: 10px;
 }
 
-/* 공통 섹션 제목 (각 탭 내에서 사용 가능) */
-.section-title {
-  font-size: 20px;
-  font-weight: 600;
-  color: #444;
-  margin-bottom: 20px;
-  border-bottom: 1px solid #ddd;
-  padding-bottom: 10px;
+.info-row {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.info-label {
+  background-color: #fff1ad;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+.info-date {
+  background-color: #fff7df;
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-size: 14px;
+}
+
+.info-buttons {
+  display: flex;
+  gap: 20px;
+}
+
+.location-btn,
+.ticket-btn {
+  background-color: #e1edc1;
+  padding: 10px 24px;
+  border: none;
+  border-radius: 20px;
+  font-size: 15px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.poster-box,
+.summary-box {
+  background-color: #ffe9d6;
+  padding: 40px;
+  border-radius: 20px;
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 18px;
+  color: #333;
 }

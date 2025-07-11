@@ -1,0 +1,45 @@
+.lineup-form {
+  font-family: "Binggrae", sans-serif;
+  padding: 2rem;
+  max-width: 500px;
+  margin: 0 auto;
+  background-color: #fffefb;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.03);
+}
+
+.lineup-form h2 {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.lineup-form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.lineup-form input {
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.lineup-form button {
+  padding: 0.8rem;
+  background-color: #ceecf2;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.lineup-form button:hover {
+  background-color: #b9e3ec;
+}
