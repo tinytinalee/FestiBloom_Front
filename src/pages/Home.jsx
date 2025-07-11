@@ -1,23 +1,59 @@
 import React, { useState, useEffect } from "react";
-import "./App.css";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+import "../css/Home.css";
+
+const formatDateWithWeekday = (dateStr) => {
+  const date = new Date(dateStr);
+  return date.toLocaleDateString("ko-KR", {
+    weekday: "short",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  });
+};
 
 function FestivalCard({ festival }) {
+  const imageURL = festival.festival_img
+    ? `http://localhost:8080/images/${festival.festival_img}`
+    : "";
   return (
-    <div className="festival-card">
-      <div className="poster">포스터</div>
-      <div className="festival-info">
-        <div className="festival-meta">
-          <span>{festival.genre}</span>
-          <span>{festival.date}</span>
+    <Link
+      to={`/festival/${festival.festival_no}`}
+      className="home-festival-card"
+    >
+      <div className="home-poster">
+        {imageURL ? (
+          <img
+            src={imageURL}
+            alt={festival.festival_name}
+            // style={{ width: "100px", height: "auto" }}
+          />
+        ) : (
+          <div className="no-image">No Image</div>
+        )}
+      </div>
+      <div className="home-festival-info">
+        <h3 className="festival-name">{festival.festival_name}</h3>
+        <p className="festival-genre">{festival.festival_genre}</p>
+        <p className="festival-dates">
+          {formatDateWithWeekday(festival.festival_start)} ~{" "}
+          {formatDateWithWeekday(festival.festival_end)}
+        </p>
+        <p className="festival-place">{festival.festival_place}</p>
+        {/* <div className="festival-meta">
+          <span>{festival.festival_name}</span>
+          <span>{festival.festival_genre}</span>
+          <span>
+            {new Date(festival.festival_start).toLocaleDateString("ko-KR")} ~{" "}
+            {new Date(festival.festival_end).toLocaleDateString("ko-KR")}
+          </span>
         </div>
         <div className="festival-details">
-          <span>{festival.location}</span>
-          <a href={festival.link} target="_blank" rel="noopener noreferrer">
-            티켓 구매
-          </a>
-        </div>
+          <span>{festival.festival_location}</span>
+        </div> */}
       </div>
-    </div>
+    </Link>
   );
 }
 
@@ -27,26 +63,37 @@ function Home() {
   const [searchQuery, setSearchQuery] = useState("");
   const itemsPerPage = 5;
 
-  useEffect(() => {
-    fetch("/api/festivals")
-      .then((res) => res.json())
-      .then((data) => setFestivals(data))
-      .catch((err) => console.error("불러오기 실패:", err));
-  }, []);
+  const navigate = useNavigate();
 
   const totalPages = Math.ceil(festivals.length / itemsPerPage);
   const indexOfLast = currentPage * itemsPerPage;
   const indexOfFirst = indexOfLast - itemsPerPage;
   const currentFestivals = festivals.slice(indexOfFirst, indexOfLast);
 
+  const loadData = () => {
+    axios.get("http://localhost:8080/festival").then((res) => {
+      setFestivals(res.data);
+    });
+  };
+
+  useEffect(() => {
+    loadData();
+  }, []);
+
   const handleSearch = () => {
     console.log("검색:", searchQuery);
+  };
+
+  const login = () => {
+    navigate("/login");
   };
 
   return (
     <div className="home">
       <div className="auth-buttons">
-        <button className="auth-button">로그인</button>
+        <button className="auth-button" onClick={login}>
+          로그인
+        </button>
         <button className="auth-button">회원가입</button>
       </div>
       <header className="header">
@@ -105,7 +152,7 @@ function Home() {
         </div>
       </div>
 
-      <div className="festival-list">
+      <div className="home-festival-list">
         {currentFestivals.length === 0 ? (
           <div>등록된 페스티벌이 없습니다</div>
         ) : (

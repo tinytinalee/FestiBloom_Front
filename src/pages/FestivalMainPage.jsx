@@ -1,10 +1,10 @@
 import { useParams, Link, Routes, Route } from "react-router-dom";
-import NoticePage from "./Notice";
-import ReviewPage from "./ReviewList";
-import QnaPage from "./Qna";
-import BoothPage from "./Booth";
-import LineupPage from "./Lineup";
-import WeatherPage from "./Weathere";
+// import NoticePage from "./Notice";
+// import ReviewPage from "./ReviewList";
+// import QnaPage from "./Qna";
+// import BoothPage from "./Booth";
+// import LineupPage from "./Lineup";
+// import WeatherPage from "./Weathere";
 import "../css/FestivalMainPage.css";
 
 function FestivalMainPage() {

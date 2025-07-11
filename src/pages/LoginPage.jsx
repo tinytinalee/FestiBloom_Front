@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 // import "../css/Home.css";
 import "../css/LoginPage.css";
 
@@ -8,14 +9,22 @@ function LoginPage() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     // 여기에 로그인 처리 로직을 추가하세요
-    console.log(
-      `${isBusiness ? "사업자" : "고객"} 로그인 시도`,
-      username,
-      password
-    );
+    if (userType === "customer") {
+      console.log("고객로그인");
+      const res = await axios.post("http://localhost:8080/login/customer", {
+        username,
+        password,
+      });
+    } else {
+      console.log("사업자로그인");
+      const res = await axios.post("http://localhost:8080/login/business", {
+        username,
+        password,
+      });
+    }
   };
 
   return (
@@ -38,7 +47,7 @@ function LoginPage() {
             </button>
           </div>
 
-          <form className="login-form">
+          <form className="login-form" onSubmit={handleSubmit}>
             <input
               type="text"
               placeholder="아이디"

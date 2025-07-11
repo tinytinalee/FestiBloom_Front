@@ -141,28 +141,30 @@ body {
   background-color: #fafbe3;
 }
 
-.festival-list {
+.home-festival-list {
   flex: 1;
   display: flex;
   flex-direction: column;
   gap: 16px;
   overflow-y: auto;
-  padding-right: 4px; /* 스크롤바 공간 확보 */
+  padding-right: 4px;
   align-items: center;
   color: #8b4513;
 }
 
-/* 카드 박스 */
-.festival-card {
+.home-festival-card {
   background-color: white;
   border: 1px solid #ddd;
   padding: 12px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: "100px";
+  height: "auto";
+  color: #8b4513;
 }
 
-.poster {
+.home-poster {
   width: 100px;
   height: 100px;
   background-color: #eee;
@@ -171,17 +173,17 @@ body {
   justify-content: center;
 }
 
-.festival-info {
+.home-festival-info {
   flex: 1;
   margin-left: 20px;
 }
 
-.festival-meta,
+/* .festival-meta,
 .festival-details {
   display: flex;
   justify-content: space-between;
   margin-bottom: 8px;
-}
+} */
 
 /* 페이지네이션 */
 .pagination {
@@ -199,6 +201,6 @@ body {
 }
 
 .pagination button.active {
-  background-color: #333;
+  background-color: #8b4513;
   color: white;
 }
