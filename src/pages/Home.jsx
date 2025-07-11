@@ -14,19 +14,19 @@ const formatDateWithWeekday = (dateStr) => {
 };
 
 function FestivalCard({ festival }) {
-  const imageURL = festival.festival_img
-    ? `http://localhost:8080/images/${festival.festival_img}`
+  const imageURL = festival.festivalImg
+    ? `http://localhost:8080/images/${festival.festivalImg}`
     : "";
   return (
     <Link
-      to={`/festival/${festival.festival_no}`}
+      to={`/festival/${festival.festivalNo}`}
       className="home-festival-card"
     >
       <div className="home-poster">
         {imageURL ? (
           <img
             src={imageURL}
-            alt={festival.festival_name}
+            alt={festival.festivalName}
             // style={{ width: "100px", height: "auto" }}
           />
         ) : (
@@ -34,13 +34,13 @@ function FestivalCard({ festival }) {
         )}
       </div>
       <div className="home-festival-info">
-        <h3 className="festival-name">{festival.festival_name}</h3>
-        <p className="festival-genre">{festival.festival_genre}</p>
+        <h3 className="festival-name">{festival.festivalName}</h3>
+        <p className="festival-genre">{festival.festivalGenre}</p>
         <p className="festival-dates">
-          {formatDateWithWeekday(festival.festival_start)} ~{" "}
-          {formatDateWithWeekday(festival.festival_end)}
+          {formatDateWithWeekday(festival.festivalStart)} ~{" "}
+          {formatDateWithWeekday(festival.festivalEnd)}
         </p>
-        <p className="festival-place">{festival.festival_place}</p>
+        <p className="festival-place">{festival.festivalPlace}</p>
         {/* <div className="festival-meta">
           <span>{festival.festival_name}</span>
           <span>{festival.festival_genre}</span>
@@ -72,6 +72,7 @@ function Home() {
 
   const loadData = () => {
     axios.get("http://localhost:8080/festival").then((res) => {
+      console.log(res.data);
       setFestivals(res.data);
     });
   };
