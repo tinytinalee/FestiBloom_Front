@@ -7,10 +7,10 @@ const LineupForm = () => {
   const { castNo } = useParams();
   const navigate = useNavigate();
   const [form, setForm] = useState({
-    cast_name: "",
-    cast_info: "",
-    cast_time: "",
-    festival_no: "",
+    castName: "",
+    castInfo: "",
+    castTime: "",
+    festivalNo: "",
   });
 
   useEffect(() => {
@@ -44,33 +44,33 @@ const LineupForm = () => {
       <form onSubmit={handleSubmit}>
         <input
           type="text"
-          name="cast_name"
+          name="castName"
           placeholder="출연자 이름"
-          value={form.cast_name}
+          value={form.castName}
           onChange={handleChange}
           required
         />
         <input
           type="text"
-          name="cast_info"
+          name="castInfo"
           placeholder="소개"
-          value={form.cast_info}
+          value={form.castInfo}
           onChange={handleChange}
           required
         />
         <input
           type="text"
-          name="cast_time"
+          name="castTime"
           placeholder="공연 시간"
-          value={form.cast_time}
+          value={form.castTime}
           onChange={handleChange}
           required
         />
         <input
           type="number"
-          name="festival_no"
+          name="festivalNo"
           placeholder="페스티벌 번호"
-          value={form.festival_no}
+          value={form.festivalNo}
           onChange={handleChange}
           required
         />

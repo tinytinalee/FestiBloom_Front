@@ -29,7 +29,7 @@ const BoothItemList = () => {
 
     try {
       await axios.delete(`/api/booth-items/${itemNo}`);
-      setItems(items.filter((item) => item.item_no !== itemNo));
+      setItems(items.filter((item) => item.itemNo !== itemNo));
     } catch (err) {
       console.error("삭제 실패:", err);
     }
@@ -52,23 +52,23 @@ const BoothItemList = () => {
       ) : (
         <ul className="booth-list">
           {items.map((item) => (
-            <li key={item.item_no} className="booth-item">
+            <li key={item.itemNo} className="booth-item">
               <h3>
-                {item.item_name} <span>({item.booth_name})</span>
+                {item.itemName} <span>({item.boothName})</span>
               </h3>
-              <p>{item.item_info}</p>
-              <p>💰 가격: {item.item_price.toLocaleString()}원</p>
+              <p>{item.itemInfo}</p>
+              <p>💰 가격: {item.itemPrice.toLocaleString()}원</p>
 
               {isAdmin && (
                 <div className="booth-buttons">
                   <Link
-                    to={`/festival/${festivalNo}/booth/edit/${item.item_no}`}
+                    to={`/festival/${festivalNo}/booth/edit/${item.itemNo}`}
                     className="edit-btn"
                   >
                     수정
                   </Link>
                   <button
-                    onClick={() => handleDelete(item.item_no)}
+                    onClick={() => handleDelete(item.itemNo)}
                     className="delete-btn"
                   >
                     삭제

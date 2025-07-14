@@ -9,10 +9,10 @@ const BoothItemForm = () => {
   const isEdit = !!itemNo;
 
   const [form, setForm] = useState({
-    booth_name: "",
-    item_name: "",
-    item_info: "",
-    item_price: "",
+    boothName: "",
+    itemName: "",
+    itemInfo: "",
+    itemPrice: "",
   });
 
   useEffect(() => {
@@ -31,16 +31,14 @@ const BoothItemForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      const payload = {
+        ...form,
+        festivalNo: parseInt(festivalNo),
+      };
       if (isEdit) {
-        await axios.put(`/api/booth-items/${itemNo}`, {
-          ...form,
-          festival_no: parseInt(festivalNo),
-        });
+        await axios.put(`/api/booth-items/${itemNo}`, payload);
       } else {
-        await axios.post("/api/booth-items", {
-          ...form,
-          festival_no: parseInt(festivalNo),
-        });
+        await axios.post("/api/booth-items", payload);
       }
       navigate(`/festival/${festivalNo}/booth`);
     } catch (err) {
@@ -68,8 +66,8 @@ const BoothItemForm = () => {
           부스 이름
           <input
             type="text"
-            name="booth_name"
-            value={form.booth_name}
+            name="boothName"
+            value={form.boothName}
             onChange={handleChange}
             required
           />
@@ -78,8 +76,8 @@ const BoothItemForm = () => {
           품목 이름
           <input
             type="text"
-            name="item_name"
-            value={form.item_name}
+            name="itemName"
+            value={form.itemName}
             onChange={handleChange}
             required
           />
@@ -87,8 +85,8 @@ const BoothItemForm = () => {
         <label>
           품목 설명
           <textarea
-            name="item_info"
-            value={form.item_info}
+            name="itemInfo"
+            value={form.itemInfo}
             onChange={handleChange}
             required
           />
@@ -97,8 +95,8 @@ const BoothItemForm = () => {
           가격 (원)
           <input
             type="number"
-            name="item_price"
-            value={form.item_price}
+            name="itemPrice"
+            value={form.itemPrice}
             onChange={handleChange}
             required
           />

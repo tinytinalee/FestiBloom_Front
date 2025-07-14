@@ -23,7 +23,7 @@ const LineupList = () => {
   const handleDelete = async (castNo) => {
     if (window.confirm("정말 삭제하시겠습니까?")) {
       await axios.delete(`/api/lineup/${castNo}`);
-      setLineups(lineups.filter((l) => l.cast_no !== castNo));
+      setLineups(lineups.filter((l) => l.castNo !== castNo));
     }
   };
 
@@ -46,21 +46,21 @@ const LineupList = () => {
         </thead>
         <tbody>
           {lineups.map((lineup) => (
-            <tr key={lineup.cast_no}>
-              <td>{lineup.cast_no}</td>
-              <td>{lineup.cast_name}</td>
-              <td>{lineup.cast_time}</td>
+            <tr key={lineup.castNo}>
+              <td>{lineup.castNo}</td>
+              <td>{lineup.castName}</td>
+              <td>{lineup.castTime}</td>
               {loginRole === "ADMIN" && (
                 <td>
                   <Link
-                    to={`/lineup/edit/${lineup.cast_no}`}
+                    to={`/lineup/edit/${lineup.castNo}`}
                     className="btn-edit"
                   >
                     수정
                   </Link>
                   <button
                     className="btn-delete"
-                    onClick={() => handleDelete(lineup.cast_no)}
+                    onClick={() => handleDelete(lineup.castNo)}
                   >
                     삭제
                   </button>
