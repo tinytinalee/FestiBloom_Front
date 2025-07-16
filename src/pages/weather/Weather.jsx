@@ -1,38 +1,62 @@
-// src/components/Weather.jsx
-
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { useParams } from "react-router-dom";
+import "../../css/Weather.css";
 
-const Weather = ({ city }) => {
-  const [weather, setWeather] = useState(null);
+const Weather = () => {
+  const { festivalNo } = useParams();
+  const [weatherData, setWeatherData] = useState(null);
+  const [error, setError] = useState("");
+  const [cityName, setCityName] = useState("");
 
   useEffect(() => {
     const fetchWeather = async () => {
-      const apiKey = "aabfb98644f24a73795c6bb095876a8f";
-      const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric&lang=kr`;
-
       try {
-        const response = await axios.get(url);
-        setWeather(response.data);
-      } catch (error) {
-        console.error("날씨 정보를 불러오는 데 실패했습니다:", error);
+        const res = await axios.get(
+          `http://localhost:8080/festival/${festivalNo}`
+        );
+        const koreanCity = res.data.festivalLoc;
+
+        const cityMap = {
+          서울: "Seoul",
+          부산: "Busan",
+          대구: "Daegu",
+          인천: "Incheon",
+          광주: "Gwangju",
+          대전: "Daejeon",
+          울산: "Ulsan",
+          제주: "Jeju",
+        };
+        const city = cityMap[koreanCity] || koreanCity;
+        setCityName(city);
+
+        const weatherRes = await axios.get(
+          `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=aabfb98644f24a73795c6bb095876a8f&units=metric&lang=kr`
+        );
+
+        setWeatherData(weatherRes.data);
+      } catch (err) {
+        console.error("날씨 정보 불러오는 데 실패했습니다:", err);
+        setError("날씨 데이터를 표시할 수 없습니다.");
       }
     };
 
     fetchWeather();
-  }, [city]);
-
-  if (!weather) return <p>날씨 정보를 불러오는 중...</p>;
+  }, [festivalNo]);
 
   return (
-    <div style={{ fontFamily: "Binggrae", padding: "0.5rem" }}>
-      <h3>{weather.name} 현재 날씨</h3>
-      <p>{weather.weather[0].description}</p>
-      <p>🌡️ 기온: {weather.main.temp}°C</p>
-      <img
-        src={`https://openweathermap.org/img/w/${weather.weather[0].icon}.png`}
-        alt="날씨 아이콘"
-      />
+    <div className="weather-wrapper">
+      <h2>현재 날씨 정보</h2>
+      {error && <p className="error">{error}</p>}
+      {weatherData ? (
+        <div className="weather-box">
+          <p>도시: {weatherData.name}</p>
+          <p>온도: {weatherData.main.temp}°C</p>
+          <p>날씨: {weatherData.weather[0].description}</p>
+        </div>
+      ) : !error ? (
+        <p>날씨 정보를 불러오는 중...</p>
+      ) : null}
     </div>
   );
 };
