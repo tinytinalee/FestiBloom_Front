@@ -12,7 +12,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/festival/:id/*" element={<FestivalMainPage />} />
+        <Route path="/festival/:festivalNo/*" element={<FestivalMainPage />} />
         <Route path="/join" element={<JoinPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/qna" element={<QnaList />} />

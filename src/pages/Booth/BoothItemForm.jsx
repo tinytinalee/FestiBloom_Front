@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
-import "../css/BoothItemForm.css";
+import "../../css/BoothItemForm.css";
 
 const BoothItemForm = () => {
   const { festivalNo, itemNo } = useParams();

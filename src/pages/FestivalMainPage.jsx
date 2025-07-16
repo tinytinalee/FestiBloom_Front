@@ -1,10 +1,10 @@
 import { useParams, Link, Routes, Route } from "react-router-dom";
-// import NoticePage from "./Notice";
-// import ReviewPage from "./ReviewList";
-// import QnaPage from "./Qna";
-// import BoothPage from "./Booth";
-// import LineupPage from "./Lineup";
-// import WeatherPage from "./Weathere";
+import NoticeList from "./notice/NoticeList";
+import ReviewList from "./review/ReviewList";
+import QnaList from "./qna/QnaList";
+import BoothItemList from "./booth/BoothItemList";
+import LineupList from "./lineup/LineupList";
+import WeatherPage from "./weather/WeatherPage";
 import "../css/FestivalMainPage.css";
 
 const FestivalMainPage = () => {
@@ -15,7 +15,6 @@ const FestivalMainPage = () => {
       <div className="festival-content-box">
         <h2 className="festival-title">페스티벌 상세 페이지</h2>
 
-        {/* 탭 메뉴 */}
         <nav className="tab-menu">
           <Link to="notice">공지사항</Link>
           <Link to="review">후기 게시판</Link>
@@ -25,25 +24,24 @@ const FestivalMainPage = () => {
           <Link to="weather">날씨 정보</Link>
         </nav>
 
-        {/* 탭 내용 */}
         <div className="tab-content-box">
           <Routes>
             <Route
               path="notice"
-              element={<NoticePage festivalNo={festivalNo} />}
+              element={<NoticeList festivalNo={festivalNo} />}
             />
             <Route
               path="review"
-              element={<ReviewPage festivalNo={festivalNo} />}
+              element={<ReviewList festivalNo={festivalNo} />}
             />
-            <Route path="qna" element={<QnaPage festivalNo={festivalNo} />} />
+            <Route path="qna" element={<QnaList festivalNo={festivalNo} />} />
             <Route
               path="booth"
               element={<BoothItemList festivalNo={festivalNo} />}
             />
             <Route
               path="lineup"
-              element={<LineupPage festivalNo={festivalNo} />}
+              element={<LineupList festivalNo={festivalNo} />}
             />
             <Route
               path="weather"

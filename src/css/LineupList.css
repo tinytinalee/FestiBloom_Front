@@ -34,6 +34,7 @@
 
 .lineup-list td {
   background-color: #fffafc;
+  color: #333; /* ✅ 수정된 부분: 데이터 글자색 명확히 지정 */
 }
 
 .btn-insert {

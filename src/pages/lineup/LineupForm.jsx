@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
-import "./LineupForm.css";
+import "../../css/LineupForm.css";
 
 const LineupForm = () => {
   const { castNo } = useParams();

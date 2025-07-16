@@ -1,5 +1,5 @@
 import React from "react";
-import "./NoticeList.css";
+import "../../css/NoticeList.css";
 
 const notices = [
   { id: 2, title: "2차 라인업", date: "2025-05-12" },

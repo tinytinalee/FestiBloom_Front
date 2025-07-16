@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
-import "./LineupList.css";
+import "../../css/LineupList.css";
 
 const LineupList = () => {
   const { festivalNo } = useParams(); // 현재 페스티벌 번호
@@ -11,7 +11,9 @@ const LineupList = () => {
   useEffect(() => {
     const fetchLineups = async () => {
       try {
-        const res = await axios.get(`/api/lineup/festival/${festivalNo}`);
+        const res = await axios.get(
+          `http://localhost:8080/lineup/festival/${festivalNo}`
+        );
         setLineups(res.data);
       } catch (err) {
         console.error("라인업 불러오기 실패:", err);
@@ -49,7 +51,7 @@ const LineupList = () => {
             <tr key={lineup.castNo}>
               <td>{lineup.castNo}</td>
               <td>{lineup.castName}</td>
-              <td>{lineup.castTime}</td>
+              <td>{lineup.castDate}</td>
               {loginRole === "ADMIN" && (
                 <td>
                   <Link

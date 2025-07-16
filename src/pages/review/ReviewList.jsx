@@ -18,7 +18,8 @@ const ReviewList = () => {
 
   useEffect(() => {
     axios
-      .get(`/api/review/list?festivalNo=${festivalNo}`)
+      // .get(`/api/review/list?festivalNo=${festivalNo}`)
+      .get(`http://localhost:8080/review/list/${festivalNo}`)
       .then((res) => setList(res.data));
   }, [festivalNo]);
 

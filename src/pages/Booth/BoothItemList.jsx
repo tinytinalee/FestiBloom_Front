@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { useParams, Link, useNavigate } from "react-router-dom";
-import "../css/BoothItemList.css";
+import { Link, useNavigate } from "react-router-dom";
+import "../../css/BoothItemList.css";
 
-const BoothItemList = () => {
-  const { id: festivalNo } = useParams();
+const BoothItemList = ({ festivalNo }) => {
   const [items, setItems] = useState([]);
   const navigate = useNavigate();
   const role = localStorage.getItem("role");
@@ -13,14 +12,18 @@ const BoothItemList = () => {
   useEffect(() => {
     const fetchBoothItems = async () => {
       try {
-        const res = await axios.get(`/api/booth-items/${festivalNo}`);
+        const res = await axios.get(
+          `http://localhost:8080/booth-items/${festivalNo}`
+        );
         setItems(res.data);
       } catch (err) {
-        console.error("부스 품목을 불러오지 못했습니다:", err);
+        console.error("부스 품목을 불러오지 못했습니다: ", err);
       }
     };
 
-    fetchBoothItems();
+    if (festivalNo) {
+      fetchBoothItems();
+    }
   }, [festivalNo]);
 
   const handleDelete = async (itemNo) => {
@@ -31,14 +34,13 @@ const BoothItemList = () => {
       await axios.delete(`/api/booth-items/${itemNo}`);
       setItems(items.filter((item) => item.itemNo !== itemNo));
     } catch (err) {
-      console.error("삭제 실패:", err);
+      console.error("삭제 실패: ", err);
     }
   };
 
   return (
     <div className="booth-container">
       <h2 className="booth-title">🎪 부스 품목 목록</h2>
-
       {isAdmin && (
         <div style={{ textAlign: "right", marginBottom: "20px" }}>
           <Link to={`/festival/${festivalNo}/booth/add`} className="add-btn">
@@ -46,7 +48,6 @@ const BoothItemList = () => {
           </Link>
         </div>
       )}
-
       {items.length === 0 ? (
         <p>등록된 품목이 없습니다.</p>
       ) : (

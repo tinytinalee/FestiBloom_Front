@@ -1,13 +1,26 @@
+/* ✅ 전체를 화면 가운데 정렬하는 body 설정 */
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f7f8e8; /* 배경색 유지 */
+}
+
+/* ✅ 페스티벌 상세 컨테이너 */
 .festival-main-container {
   padding: 50px 20px;
   max-width: 1000px;
-  margin: 0 auto;
+  width: 100%;
   background-color: #fffaf6;
   font-family: "Binggrae", sans-serif;
   border-radius: 20px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
 }
 
+/* ✅ 타이틀 */
 .festival-title {
   text-align: center;
   font-size: 42px;
@@ -15,6 +28,7 @@
   margin-bottom: 30px;
 }
 
+/* ✅ 탭 메뉴 */
 .tab-menu {
   display: flex;
   flex-wrap: wrap;
@@ -37,6 +51,7 @@
   background-color: #ffe28f;
 }
 
+/* ✅ 공연 정보 */
 .festival-info {
   display: flex;
   flex-direction: column;
@@ -81,6 +96,7 @@
   font-weight: bold;
 }
 
+/* ✅ 포스터 & 설명 박스 */
 .poster-box,
 .summary-box {
   background-color: #ffe9d6;
