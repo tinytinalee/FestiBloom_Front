@@ -1,0 +1,56 @@
+body {
+  font-family: "Binggrae", sans-serif;
+}
+
+.nav-bar {
+  display: flex;
+  background-color: #ffebb8;
+  padding: 10px 20px;
+  gap: 20px;
+}
+
+.nav-bar a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  padding: 8px 16px;
+  border-radius: 20px;
+  background-color: #fff8dc;
+}
+
+.nav-bar a.active {
+  background-color: #f2d5dd;
+  color: #333;
+}
+
+.qna-table {
+  width: 90%;
+  margin: 30px auto;
+  border-collapse: collapse;
+}
+
+.qna-table th,
+.qna-table td {
+  padding: 12px;
+  border-bottom: 1px solid #ccc;
+  text-align: center;
+}
+
+.write-btn-container {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.write-btn {
+  width: 100px;
+  padding: 10px;
+  background-color: #e1edc1;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.write-btn:hover {
+  background-color: #d4e8b4;
+}

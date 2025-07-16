@@ -1,0 +1,85 @@
+body {
+  font-family: "Binggrae", sans-serif;
+  background-color: #fffbef;
+  margin: 0;
+  padding: 0;
+}
+
+.board-write-container {
+  padding: 30px;
+}
+
+.tab-bar {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  gap: 20px;
+}
+
+.tab {
+  padding: 10px 30px;
+  border-radius: 20px;
+  cursor: pointer;
+  background-color: #eee;
+  font-weight: bold;
+}
+
+.tab.active {
+  background-color: #f2d5dd;
+}
+
+.form-title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.board-write-form {
+  width: 70%;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.board-write-form label {
+  display: block;
+  margin-bottom: 15px;
+}
+
+.board-write-form input[type="text"],
+.board-write-form textarea,
+.board-write-form input[type="file"] {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-family: inherit;
+}
+
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.button-group button {
+  padding: 10px 20px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.button-group button[type="submit"] {
+  background-color: #ceecf2;
+}
+
+.button-group button[type="button"] {
+  background-color: #ffebb8;
+}
+
+.button-group button:hover {
+  opacity: 0.9;
+}
