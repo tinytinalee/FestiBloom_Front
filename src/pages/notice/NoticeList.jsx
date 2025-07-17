@@ -4,36 +4,42 @@ import "../../css/NoticeList.css";
 import axios from "axios";
 
 const NoticeList = () => {
-  const { id: festivalNo } = useParams();
-  const [user, setUser] = useState(null);
+  const { festivalNo } = useParams();
   const [notice, setNotice] = useState([]);
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        // 현재 로그인된 사용자 정보 조회
-        const userResponse = await axios.get("/user", {
-          withCredentials: true,
-        });
-        setUser(userResponse.data);
-      } catch (err) {
-        console.error("Failed to fetch user:", err);
-      }
+    console.log(festivalNo);
+    axios
+      // .get(`/api/review/list?festivalNo=${festivalNo}`)
+      .get(`http://localhost:8080/notice/list/${festivalNo}`)
+      .then((res) => setNotice(res.data));
+  }, [festivalNo]);
 
-      try {
-        // 공지 목록 조회
-        const noticeResponse = await axios.get("/notice");
-        setNotices(noticeResponse.data);
-      } catch (err) {
-        console.error("Failed to fetch notices:", err);
-      } finally {
-        setLoading(false);
-      }
-    };
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       // 현재 로그인된 사용자 정보 조회
+  //       const userResponse = await axios.get("/user", {
+  //         withCredentials: true,
+  //       });
+  //       setUser(userResponse.data);
+  //     } catch (err) {
+  //       console.error("Failed to fetch user:", err);
+  //     }
 
-    fetchData();
-  }, []);
+  //     try {
+  //       // 공지 목록 조회
+  //       const noticeResponse = await axios.get("/notice");
+  //       setNotice(noticeResponse.data);
+  //     } catch (err) {
+  //       console.error("Failed to fetch notices:", err);
+  //     } finally {
+  //       setLoading(false);
+  //     }
+  //   };
+
+  //   fetchData();
+  // }, []);
 
   // useEffect(() => {
   //   // 현재 로그인된 사용자 정보 조회
@@ -50,13 +56,11 @@ const NoticeList = () => {
   //     .finally(() => setLoading(false));
   // }, []);
 
-  if (loading) return <div>Loading...</div>;
-
   return (
     <div className="notice-container">
       <h2>공지사항</h2>
 
-      {user?.id === "business" && (
+      {localStorage.getItem("loginState") == "business" && (
         <div className="write-area">
           <Link to="/notice/form" className="write-button">
             공지 쓰기
@@ -73,16 +77,16 @@ const NoticeList = () => {
           </tr>
         </thead>
         <tbody>
-          {notices.length > 0 ? (
-            notices.map((n) => (
+          {notice.length > 0 ? (
+            notice.map((n, index) => (
               <tr key={n.noticeNo}>
-                <td>{n.noticeNo}</td>
+                <td>{index + 1}</td>
                 <td>
                   <Link to={`/notice/${n.noticeNo}`} className="title-link">
                     {n.noticeTitle}
                   </Link>
                 </td>
-                <td>{new Date(n.noticeCreatedDate).toLocaleDateString()}</td>
+                <td>{new Date(n.noticeCreated).toLocaleDateString()}</td>
               </tr>
             ))
           ) : (

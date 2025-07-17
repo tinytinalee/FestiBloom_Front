@@ -54,3 +54,7 @@ body {
 .write-btn:hover {
   background-color: #d4e8b4;
 }
+
+.login-please {
+  text-align: center;
+}

@@ -58,6 +58,22 @@ body {
   background-color: #fafbe3;
 }
 
+.add-festival {
+  display: inline-block;
+  width: auto;
+  background-color: #f4f4dc;
+  color: #8b4513;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 12px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.add-festival:hover {
+  background-color: #fafbe3;
+}
+
 .search-section {
   display: flex;
   flex-direction: column;
@@ -116,7 +132,7 @@ body {
 }
 
 .search input[type="text"] {
-  width: 450px;
+  width: 385px;
   padding: 6px;
   border-radius: 6px;
   border: none;

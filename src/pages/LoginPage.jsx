@@ -1,34 +1,49 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-// import "../css/Home.css";
 import "../css/LoginPage.css";
 
 function LoginPage() {
   const [userType, setUserType] = useState("customer");
   const [id, setId] = useState("");
   const [pwd, setPwd] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     // 여기에 로그인 처리 로직을 추가하세요
+    console.log(id);
+    console.log(pwd);
     if (userType === "customer") {
       console.log("고객로그인");
-      console.log(id);
-      console.log(pwd);
       const res = await axios.post("http://localhost:8080/login/customer", {
         id,
         pwd,
       });
-      console.log(res);
+      console.log(res.data);
+      if (res.data == "") {
+        alert("아이디와 비밀번호를 다시 확인해주세요.");
+      } else {
+        localStorage.setItem("loginState", "customer");
+        localStorage.setItem("loginId", res.data.cMemId);
+        localStorage.setItem("loginName", res.data.cMemName);
+        navigate("/");
+      }
     } else {
       console.log("사업자로그인");
       const res = await axios.post("http://localhost:8080/login/business", {
         id,
         pwd,
       });
-      console.log(res.data);
-      alert(res.data);
+      console.log(res);
+      if (res.data == "") {
+        alert("아이디와 비밀번호를 다시 확인해주세요.");
+      } else {
+        localStorage.setItem("loginState", "business");
+        localStorage.setItem("loginId", res.data.bMemId);
+        localStorage.setItem("loginName", res.data.bMemName);
+        navigate("/");
+      }
     }
   };
 

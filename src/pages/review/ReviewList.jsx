@@ -52,7 +52,12 @@ const ReviewList = () => {
           ))}
         </tbody>
       </table>
-      <Link to={`/festival/${festivalNo}/review/write`}>글쓰기</Link>
+      {localStorage.getItem("loginState") == "customer" && (
+        <Link to={`/festival/${festivalNo}/review/write`}>글쓰기</Link>
+      )}
+      {localStorage.getItem("loginState") == "notLoggedIn" && (
+        <div className="login-please">후기를 작성하려면 로그인하세요.</div>
+      )}
     </>
   );
 };

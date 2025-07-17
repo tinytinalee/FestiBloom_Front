@@ -9,12 +9,10 @@ function useQuery() {
 
 const QnaList = () => {
   const [qna, setQna] = useState([]);
-  const [loading, setLoading] = useState(true);
   const { festivalNo } = useParams();
   const navigate = useNavigate();
 
   useEffect(() => {
-    console.log("hi");
     console.log(festivalNo);
     axios
       .get(`http://localhost:8080/qna/list/${festivalNo}`)
@@ -37,10 +35,8 @@ const QnaList = () => {
   // }, []);
 
   const handleWrite = () => {
-    navigate(`/qna/write?type=${type || "question"}`);
+    navigate(`festival/${festivalNo}/qna/write`);
   };
-
-  if (loading) return <div>Loading...</div>;
 
   return (
     <div>
@@ -48,24 +44,21 @@ const QnaList = () => {
         <thead>
           <tr>
             <th>번호</th>
-            <th>유형</th>
             <th>제목</th>
             <th>작성자</th>
             <th>작성일</th>
-            <th>파일</th>
           </tr>
         </thead>
         <tbody>
           {qna.length > 0 ? (
-            qna.map((q) => (
-              <tr key={q.no}>
-                <td>{q.no}</td>
-                <td>{q.boardType}</td>
+            qna.map((q, index) => (
+              <tr key={q.qnaNo}>
+                <td>{index + 1}</td>
                 <td>
-                  <Link to={`/qna/${q.no}`}>{q.title}</Link>
+                  <Link to={`/qna/${q.no}`}>{q.qnaTitle}</Link>
                 </td>
-                <td>{q.writer}</td>
-                <td>{new Date(q.regdate).toLocaleDateString()}</td>
+                <td>{q.cMemId}</td>
+                <td>{new Date(q.qnaCreated).toLocaleDateString()}</td>
               </tr>
             ))
           ) : (
@@ -76,11 +69,16 @@ const QnaList = () => {
         </tbody>
       </table>
 
-      <div className="write-btn-container">
-        <button className="write-btn" onClick={handleWrite}>
-          글쓰기
-        </button>
-      </div>
+      {localStorage.getItem("loginState") == "customer" && (
+        <div className="write-btn-container">
+          <button className="write-btn" onClick={handleWrite}>
+            글쓰기
+          </button>
+        </div>
+      )}
+      {localStorage.getItem("loginState") == "notLoggedIn" && (
+        <div className="login-please">QnA를 작성하려면 로그인하세요.</div>
+      )}
     </div>
   );
 };
