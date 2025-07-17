@@ -14,12 +14,13 @@ function LoginPage() {
     // 여기에 로그인 처리 로직을 추가하세요
     if (userType === "customer") {
       console.log("고객로그인");
+      console.log(id);
+      console.log(pwd);
       const res = await axios.post("http://localhost:8080/login/customer", {
         id,
         pwd,
       });
-      console.log(res.data);
-      alert(res.data);
+      console.log(res);
     } else {
       console.log("사업자로그인");
       const res = await axios.post("http://localhost:8080/login/business", {

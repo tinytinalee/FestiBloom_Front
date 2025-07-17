@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import "../../css/QnaList.css";
 
@@ -14,9 +14,11 @@ const QnaList = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    console.log("hi");
+    console.log(festivalNo);
     axios
-      .get(`/qna/list?festivalNo=${festivalNo}`)
-      .then((res) => setList(res.data));
+      .get(`http://localhost:8080/qna/list/${festivalNo}`)
+      .then((res) => setQna(res.data));
   }, [festivalNo]);
 
   // useEffect(() => {
