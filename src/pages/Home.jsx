@@ -41,17 +41,6 @@ function FestivalCard({ festival }) {
           {formatDateWithWeekday(festival.festivalEnd)}
         </p>
         <p className="festival-place">{festival.festivalPlace}</p>
-        {/* <div className="festival-meta">
-          <span>{festival.festival_name}</span>
-          <span>{festival.festival_genre}</span>
-          <span>
-            {new Date(festival.festival_start).toLocaleDateString("ko-KR")} ~{" "}
-            {new Date(festival.festival_end).toLocaleDateString("ko-KR")}
-          </span>
-        </div>
-        <div className="festival-details">
-          <span>{festival.festival_location}</span>
-        </div> */}
       </div>
     </Link>
   );
@@ -89,18 +78,31 @@ function Home() {
     navigate("/login");
   };
 
+  const join = () => {
+    navigate("/join");
+  };
+
+  const addFestival = () => {
+    navigate("/festivalform");
+  };
+
   return (
     <div className="home">
       <div className="auth-buttons">
         <button className="auth-button" onClick={login}>
           로그인
         </button>
-        <button className="auth-button">회원가입</button>
+        <button className="auth-button" onClick={join}>
+          회원가입
+        </button>
       </div>
       <header className="header">
         <h1 className="logo">FestiBloom</h1>
       </header>
 
+      <button className="search-btn" onClick={addFestival}>
+        페스티벌 등록하기
+      </button>
       <div className="search-section">
         <div className="filters">
           <select className="filter-select">

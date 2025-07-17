@@ -6,24 +6,29 @@ import "../css/LoginPage.css";
 
 function LoginPage() {
   const [userType, setUserType] = useState("customer");
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const [id, setId] = useState("");
+  const [pwd, setPwd] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     // 여기에 로그인 처리 로직을 추가하세요
     if (userType === "customer") {
       console.log("고객로그인");
+      console.log(id);
+      console.log(pwd);
       const res = await axios.post("http://localhost:8080/login/customer", {
-        username,
-        password,
+        id,
+        pwd,
       });
+      console.log(res);
     } else {
       console.log("사업자로그인");
       const res = await axios.post("http://localhost:8080/login/business", {
-        username,
-        password,
+        id,
+        pwd,
       });
+      console.log(res.data);
+      alert(res.data);
     }
   };
 
@@ -51,14 +56,14 @@ function LoginPage() {
             <input
               type="text"
               placeholder="아이디"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
+              value={id}
+              onChange={(e) => setId(e.target.value)}
             />
             <input
               type="password"
               placeholder="비밀번호"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              value={pwd}
+              onChange={(e) => setPwd(e.target.value)}
             />
             <button type="submit" className="login-button">
               로그인

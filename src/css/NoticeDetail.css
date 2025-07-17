@@ -1,0 +1,62 @@
+body {
+  font-family: "Binggrae", sans-serif;
+  background-color: #ffebb8;
+  margin: 0;
+  padding: 0;
+}
+
+.notice-detail-container {
+  width: 70%;
+  margin: 30px auto;
+  padding: 0 10px;
+}
+
+.notice-card {
+  background-color: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.notice-card h2 {
+  text-align: center;
+  color: #704214;
+}
+
+.notice-content {
+  margin-top: 20px;
+  line-height: 1.8;
+}
+
+.content-body p {
+  margin-bottom: 10px;
+}
+
+.button-group {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.button-group button {
+  font-family: "Binggrae", sans-serif;
+  padding: 10px 20px;
+  margin: 0 8px;
+  border: none;
+  border-radius: 8px;
+  background-color: #ceecf2;
+  color: #333;
+  cursor: pointer;
+}
+
+.button-group button:hover {
+  background-color: #beeaf0;
+}
+
+.not-admin p {
+  color: gray;
+  margin: 5px 0;
+}
+
+.warning {
+  color: red;
+}

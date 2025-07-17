@@ -1,0 +1,71 @@
+/* Container */
+.festival-container {
+  min-height: 100vh;
+  background: #fef7dc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+/* Form */
+.festival-form {
+  width: 100%;
+  max-width: 600px;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.festival-form h2 {
+  font-size: 1.875rem;
+  color: #924e00;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.form-row {
+  display: flex;
+  gap: 1rem;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 0.5rem;
+  color: #8b4513;
+}
+
+.form-group input[type="text"],
+.form-group input[type="date"],
+.form-group input[type="url"],
+.form-group select,
+.form-group textarea,
+.form-group input[type="file"] {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #f0e0c8;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 0.75rem;
+  background: #924e00;
+  color: #fff;
+  font-size: 1rem;
+  border: none;
+  border-radius: 1.5rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.submit-btn:hover {
+  background: #793e00;
+}

@@ -1,0 +1,44 @@
+body {
+  font-family: "Binggrae", sans-serif;
+  background-color: #f2d5dd;
+  margin: 0;
+  padding: 0;
+}
+
+.notice-write-container {
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 20px;
+}
+
+.notice-write-form label {
+  display: block;
+  margin-bottom: 15px;
+}
+
+.notice-write-form input[type="text"],
+.notice-write-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.button-group {
+  display: flex;
+  gap: 10px;
+}
+
+.button-group button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #ceecf2;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.button-group button:hover {
+  background-color: #beeaf0;
+}
